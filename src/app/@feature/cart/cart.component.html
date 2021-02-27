@@ -1,1 +1,55 @@
-<p>cart works!</p>
+<div class="container" fxLayout="column">
+    <h1 class="mat-h1">Cart</h1>
+    <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between start">
+        <p-orderList [value]="cartItems" [listStyle]="{'height':'auto'}" header="List of Products" filterBy="name"
+            filterPlaceholder="Filter by name" fxFlex="70%">
+            <ng-template let-product pTemplate="item">
+                <div class="product-item">
+                    <div class="image-container">
+                        <img [src]="product.image" [alt]="product.name" class="product-image" />
+                    </div>
+                    <div class="product-list-detail">
+                        <h5 class="p-mb-2">{{product.name}}</h5>
+                        <i class="pi pi-tag product-category-icon"></i>
+                        <span class="product-category">{{product.category}}</span>
+                    </div>
+                    <div class="product-list-action">
+                        <h4 class="p-mb-2">{{product.price | currency: 'INR'}}</h4>
+                        <label for="horizontal">Quantity</label>
+                        <p-inputNumber [(ngModel)]="quantity" [showButtons]="true" buttonLayout="horizontal"
+                            inputId="horizontal" spinnerMode="horizontal" [step]="1"
+                            decrementButtonClass="p-button-danger" incrementButtonClass="p-button-warning"
+                            incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus">
+                        </p-inputNumber>
+                    </div>
+                </div>
+            </ng-template>
+        </p-orderList>
+
+        <p-card header="Order Summary" subheader="Card Subheader" styleClass="p-card-shadow" fxFlex="30%">
+            <!-- <ng-template pTemplate="header">
+                    <img alt="Card" src="assets/showcase/images/usercard.png">
+                </ng-template> -->
+            <div fxLayout="column">
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <h2 class="mat-h2">Items 6</h2>
+                    <h2 class="mat-h2">{{'500' | currency: 'INR'}}</h2>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <h2 class="mat-h2">Delivery</h2>
+                    <h2 class="mat-h2">{{'40' | currency: 'INR'}}</h2>
+                </div>
+                <p-divider></p-divider>
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <h2 class="mat-h2">Total</h2>
+                    <h2 class="mat-h2">{{'540' | currency: 'INR'}}</h2>
+                </div>
+            </div>
+            <ng-template pTemplate="footer">
+                <div fxFlex fxLayoutAlign="center center">
+                    <p-button label="Checkout" styleClass="p-button-raised p-button-lg p-button-danger w-100"></p-button>
+                </div>
+            </ng-template>
+        </p-card>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+        <br />
+        <h1 class="mat-h1 p-pl-4">Menu List</h1>
+        <p-divider></p-divider>
+        <mat-selection-list #menuListItems [multiple]="false" (selectionChange)="selectionChange($event)" color="accent">
+            <mat-list-option *ngFor="let menuItem of menuListOptions" [value]="menuItem" [selected]="menuItem === categoryTitle">{{menuItem}}</mat-list-option>
+        </mat-selection-list>
+    </mat-drawer>
+    <mat-drawer-content>
+        <section class="container">
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+                <h1 class="mat-h1">{{categoryTitle | titlecase}}</h1>
+                <h2 class="mat-h2">
+                    <mat-slide-toggle (change)="vegOnly($event)">Veg Only</mat-slide-toggle>
+                </h2>
+            </div>
+            <div class="p-grid">
+                <div *ngFor="let item of categoryItems" class="p-col-12 p-md-6 p-lg-3">
+                    <p-card fxLayout="column">
+                        <ng-template pTemplate="header">
+                            <img alt="Card" [src]="item.image">
+                        </ng-template>
+                        <div fxLayout="row" fxLayoutAlign="start center">
+                            <mat-icon [ngStyle]="{'color': item.category === 'veg' ? 'green' : 'red'}">
+                                radio_button_checked
+                            </mat-icon>
+                            <h2 class="p-card-shadow">{{item.item}}</h2>
+                        </div>
+                        <ng-template pTemplate="footer">
+                            <div fxLayout="row" fxLayoutAlign="space-between center">
+                                <p>{{item.price | currency: 'INR'}}</p>
+                                <p-button label="ADD TO CART" styleClass="p-button-sm p-button-raised p-button-danger"
+                                    (click)="addToCart(item)"></p-button>
+                            </div>
+                        </ng-template>
+                    </p-card>
+                </div>
+            </div>
+        </section>
+    </mat-drawer-content>
+</mat-drawer-container>

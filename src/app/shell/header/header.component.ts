@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
 
 import { AuthenticationService, CredentialsService } from '@app/auth';
+import { SharedService } from '@app/@shared/shared.service';
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-header',
@@ -14,12 +16,22 @@ export class HeaderComponent implements OnInit {
 
   @Input() sidenav!: MatSidenav;
 
-  constructor(private router: Router,
-              private titleService: Title,
-              private authenticationService: AuthenticationService,
-              private credentialsService: CredentialsService) { }
+  public totalCartItems: number = 0;
 
-  ngOnInit() { }
+  constructor(private router: Router,
+    private titleService: Title,
+    private authenticationService: AuthenticationService,
+    private credentialsService: CredentialsService,
+    private sharedService: SharedService,
+    private primengConfig: PrimeNGConfig
+  ) { }
+
+  ngOnInit() {
+    this.sharedService.getCartItem.subscribe(async (items: any) => {
+      this.totalCartItems = items.length;
+    });
+    this.primengConfig.ripple = true;
+  }
 
   logout() {
     this.authenticationService.logout()

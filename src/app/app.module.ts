@@ -12,7 +12,7 @@ import { environment } from '@env/environment';
 import { CoreModule } from '@core';
 import { SharedModule } from '@shared';
 import { AuthModule } from '@app/auth';
-import { HomeModule } from './home/home.module';
+// import { HomeModule } from './@feature/home/home.module';
 import { ShellModule } from './shell/shell.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -32,7 +32,7 @@ import { FeatureModule } from './@feature/feature.module';
     SharedModule,
     FeatureModule,
     ShellModule,
-    HomeModule,
+    // HomeModule,
     AuthModule,
     AppRoutingModule // must be imported as the last module as it contains the fallback route
   ],

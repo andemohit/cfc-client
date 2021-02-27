@@ -4,6 +4,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MaterialModule } from '@app/material.module';
 import { LoaderComponent } from './loader/loader.component';
+import { SharedService } from './shared.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -15,7 +17,12 @@ import { LoaderComponent } from './loader/loader.component';
     LoaderComponent
   ],
   exports: [
-    LoaderComponent
+    LoaderComponent,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  providers: [
+    SharedService
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,145 @@
+@import "src/theme/theme-variables";
+
+section {
+  &.banner {
+    position: relative;
+    
+    img.banner-image {
+      width: 100%;
+    }
+
+    .banner-content {
+      position: absolute;
+      color: #fff;
+      
+    }
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .container {
+    width: 100%;
+  }
+  .banner {
+    .banner-content {
+      .mat-h1 {
+        font: 700 22px/48px "Nunito" !important;
+        margin: 0px;
+      }
+      p {
+        margin: 0px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .banner {
+    .banner-content {
+      left: 1em;
+      top: 1em;
+      max-width: 60%;
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    width: 80%;
+  }
+  .banner {
+    .banner-content {
+      left: 5em; top: 8em;
+      max-width: 30%;
+    }
+  }
+}
+
+.container {
+  padding: 1em;
+  margin: auto;
+}
+
+.logo {
+  width: 150px;
+  margin: 0 auto;
+}
+
+q {
+  font-style: italic;
+  quotes: "« " " »";
+}
+
+:host ::ng-deep.p-carousel {
+  .mat-card {
+    margin-right: 10px;
+    padding: 0px;
+
+    .product-image {
+      width: 100%;
+    }
+
+    .mat-card-content {
+      padding: 16px;
+    }
+  }
+
+  .p-carousel-items-content {
+    // min-height: 400px;
+  }
+  
+  .p-carousel-indicators {
+    display: none !important;
+  }
+
+  .product-item {
+    .product-item-content {
+        // border: 1px solid var(--surface-d);
+        border-radius: 3px;
+        margin: .3rem;
+        text-align: center;
+        padding: 2rem 0;
+    }
+
+    .product-image {
+        width: 50%;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+    }
+  }
+}
+
+::ng-deep.p-card {
+  margin: .3rem;
+  .p-card-body {
+      padding: 0 1rem 1rem 1rem;
+
+      .p-card-content {
+          padding: 0px;
+
+          .p-card-shadow {
+              margin: 0;
+          }
+      }
+  }
+}
+
+.menu-card {
+  position: relative;
+  height: 192px;
+  width: 300px;
+  margin: 10px;
+  border-radius: 4px;
+  background-image: url('/assets/category-tile_bg.jpg');
+  background-repeat: no-repeat;
+  cursor: pointer;
+
+  .menu-title {
+    color: #fff;
+    padding-left: 10px;
+  }
+
+  .menu-image {
+    position: absolute;
+    top: 0px; right: 0px;
+  }
+}

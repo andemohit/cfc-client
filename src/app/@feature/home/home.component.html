@@ -1,0 +1,120 @@
+<section class="banner">
+  <img class="banner-image" src="assets/dashboard3.png" />
+  <div class="banner-content" fxLayout="column">
+    <h1 class="mat-h1">WELCOME TO CRISPYS</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque nemo eligendi quo eos cumque explicabo sapiente
+      cum. Repudiandae quia, fugiat corporis magni consequuntur eveniet</p>
+    <div fxLayout="row" fxLayoutGap="20px">
+      <button mat-stroked-button color="">Learn More</button>
+      <button mat-raised-button color="">Learn More</button>
+    </div>
+  </div>
+</section>
+<div class="container">
+
+  <p-carousel [value]="products" [numVisible]="3" [numScroll]="1" [circular]="false"
+    [responsiveOptions]="responsiveOptions">
+    <ng-template pTemplate="header">
+      <h2>Top Selling</h2>
+    </ng-template>
+    <ng-template let-product pTemplate="item">
+
+      <p-card fxLayout="column">
+        <ng-template pTemplate="header">
+          <img alt="Card" [src]="product.image">
+        </ng-template>
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <mat-icon [ngStyle]="{'color': product.category === 'veg' ? 'green' : 'red'}">radio_button_checked
+          </mat-icon>
+          <h2 class="p-card-shadow">{{product.item}}</h2>
+        </div>
+        <ng-template pTemplate="footer">
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <p>{{product.price | currency: 'INR'}}</p>
+            <p-button label="ADD TO CART" styleClass="p-button-sm p-button-raised p-button-danger"
+              (click)="addToCart(product)"></p-button>
+          </div>
+        </ng-template>
+      </p-card>
+    </ng-template>
+  </p-carousel>
+
+
+  <!-- <p-carousel [value]="products" [numVisible]="4" [numScroll]="1" [responsiveOptions]="responsiveOptions"> -->
+  <!-- <ng-template pTemplate="header">
+      <h2>Top Selling</h2>
+    </ng-template>
+    <ng-template let-product pTemplate="item">
+      <p-card fxLayout="column">
+        <ng-template pTemplate="header">
+          <img alt="Card" [src]="product.image">
+        </ng-template>
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <mat-icon [ngStyle]="{'color': product.category === 'veg' ? 'green' : 'red'}">radio_button_checked</mat-icon>
+          <h2 class="p-card-shadow">{{product.item}}</h2>
+        </div>
+        <ng-template pTemplate="footer">
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <p>{{product.price | currency: 'INR'}}</p>
+            <p-button label="ADD TO CART" styleClass="p-button-sm p-button-raised p-button-danger"
+              (click)="addToCart(product)"></p-button>
+          </div>
+        </ng-template>
+      </p-card> -->
+  <!-- <mat-card-subtitle>
+        <app-loader [isLoading]="isLoading" size="1.5"></app-loader>
+        <q [hidden]="isLoading">{{quote}}</q>
+      </mat-card-subtitle> -->
+  <!-- <mat-card>
+        <img class="product-image" [src]="product.image" alt="product image" loading="lazy" />
+        <mat-card-content fxLayout="column" fxLayoutGap="10px">
+          <mat-card-title fxFlex fxLayoutAlign="start center" fxLayoutGap="5px">
+            <mat-icon [ngStyle]="{'color': product.category === 'veg' ? 'green' : 'red'}">radio_button_checked
+            </mat-icon>
+            <span>{{product.item}}</span>
+          </mat-card-title>
+          <div fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+            <div>
+              {{product.price | currency: 'INR'}}
+            </div>
+            <div>
+              <p-button label="ADD" styleClass="p-button-sm p-button-raised p-button-danger"
+                (click)="addToCart(product)"></p-button>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card> -->
+  <!-- </ng-template> -->
+  <!-- </p-carousel> -->
+
+  <section>
+    <h2>Menu</h2>
+    <div fxLayout="row wrap" fxLayoutAlign="space-evenly center">
+      <div class="menu-card" (click)="menuRoute('Vegetarian')">
+        <h1 class="menu-title">Veg</h1>
+        <img class="menu-image" src="assets/menu/CAT86.png" />
+      </div>
+      <div class="menu-card" (click)="menuRoute('Non-Vegetarian')">
+        <h1 class="menu-title">Non-Veg</h1>
+        <img class="menu-image" src="assets/menu/CAT-deals.png" />
+      </div>
+      <div class="menu-card" (click)="menuRoute('Ala-Carte')">
+        <h1 class="menu-title">Ala-Carte</h1>
+        <img class="menu-image" src="assets/menu/CAT-burgers.png" />
+      </div>
+      <div class="menu-card" (click)="menuRoute('Chicken Wings')">
+        <h1 class="menu-title">Chicken Wings</h1>
+        <img class="menu-image" src="assets/menu/CAT-ricebowl.png" />
+      </div>
+      <div class="menu-card" (click)="menuRoute('Boneless Chicken Strips')">
+        <h1 class="menu-title">Boneless Chicken Strips</h1>
+        <img class="menu-image" src="assets/menu/CAT-snacks.png" />
+      </div>
+      <div class="menu-card" (click)="menuRoute('Bucket')">
+        <h1 class="menu-title">Bucket</h1>
+        <img class="menu-image" src="assets/menu/CAT-BEVERAGES.png" />
+      </div>
+    </div>
+  </section>
+
+</div>
