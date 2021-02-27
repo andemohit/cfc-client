@@ -1,0 +1,30 @@
+/*
+ * Global application theme.
+ * Framework overrides and customization goes here.
+ */
+
+// stylelint-disable-next-line selector-max-universal
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 100%;
+  font-family: Nunito, Roboto, "Helvetica Neue", sans-serif !important;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+::-webkit-scrollbar-thumb {
+  background-color: #e53935;
+  border-radius: 4px;
+  // outline: 1px solid #e53935;
+}

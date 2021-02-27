@@ -1,0 +1,75 @@
+section {
+  &.banner {
+    position: relative;
+    
+    img.banner-image {
+      width: 100%;
+    }
+
+    .banner-content {
+      position: absolute;
+      color: #fff;
+      left: 5em; top: 8em;
+      max-width: 30%;
+    }
+  }
+}
+
+.container {
+  padding: 1em;
+  width: 80%;
+  margin: auto;
+}
+
+.logo {
+  width: 150px;
+  margin: 0 auto;
+}
+
+q {
+  font-style: italic;
+  quotes: "« " " »";
+}
+
+:host ::ng-deep.p-carousel {
+  .mat-card {
+    margin-right: 10px;
+    padding: 0px;
+
+    .product-image {
+      width: 100%;
+    }
+
+    .mat-card-content {
+      padding: 16px;
+    }
+  }
+
+  .p-carousel-items-content {
+    min-height: 400px;
+  }
+  
+  .p-carousel-indicators {
+    display: none !important;
+  }
+}
+
+.menu-card {
+  position: relative;
+  height: 192px;
+  width: 300px;
+  margin: 10px;
+  border-radius: 4px;
+  background-image: url('/assets/category-tile_bg.jpg');
+  background-repeat: no-repeat;
+
+  .menu-title {
+    color: #fff;
+    padding-left: 10px;
+  }
+
+  .menu-image {
+    position: absolute;
+    top: 0px; right: 0px;
+  }
+}

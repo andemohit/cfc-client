@@ -1,0 +1,75 @@
+<section class="banner">
+  <img class="banner-image" src="assets/dashboard3.png" />
+  <div class="banner-content" fxLayout="column">
+    <h1 class="mat-h1">WELCOME TO CRISPYS</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque nemo eligendi quo eos cumque explicabo sapiente
+      cum. Repudiandae quia, fugiat corporis magni consequuntur eveniet beatae perspiciatis dicta laborum, quasi
+      ducimus.</p>
+    <div fxLayout="row" fxLayoutGap="20px">
+      <button mat-stroked-button color="">Learn More</button>
+      <button mat-raised-button color="">Learn More</button>
+    </div>
+  </div>
+</section>
+<div class="container">
+  <p-carousel [value]="products" [numVisible]="3" [numScroll]="1">
+    <ng-template pTemplate="header">
+      <h2>Top Selling</h2>
+    </ng-template>
+    <ng-template let-product pTemplate="item">
+      <mat-card>
+        <img class="product-image" [src]="product.image" alt="product image" loading="lazy" />
+        <mat-card-content fxLayout="column" fxLayoutGap="10px">
+          <mat-card-title fxFlex fxLayoutAlign="start center" fxLayoutGap="5px">
+            <mat-icon [ngStyle]="{'color': product.category === 'veg' ? 'green' : 'red'}">radio_button_checked
+            </mat-icon>
+            <span>{{product.item}}</span>
+          </mat-card-title>
+          <!-- <mat-card-subtitle>
+            <app-loader [isLoading]="isLoading" size="1.5"></app-loader>
+            <q [hidden]="isLoading">{{quote}}</q>
+          </mat-card-subtitle> -->
+          <div fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+            <div>
+              {{product.price | currency: 'INR'}}
+            </div>
+            <div>
+              <p-button label="ADD" styleClass="p-button-sm p-button-raised p-button-danger"></p-button>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </ng-template>
+  </p-carousel>
+
+  <div>
+    <h2>Menu</h2>
+    <div fxLayout="row wrap" fxLayoutAlign="space-evenly center">
+      <div class="menu-card">
+        <h1 class="menu-title">Chicken</h1>
+        <img class="menu-image" src="assets/menu/CAT86.png" />
+      </div>
+      <div class="menu-card">
+        <h1 class="menu-title">Deals</h1>
+        <img class="menu-image" src="assets/menu/CAT-deals.png" />
+      </div>
+      <div class="menu-card">
+        <h1 class="menu-title">Burgers</h1>
+        <img class="menu-image" src="assets/menu/CAT-burgers.png" />
+      </div>
+      <div class="menu-card">
+        <h1 class="menu-title">Rice Bowl</h1>
+        <img class="menu-image" src="assets/menu/CAT-ricebowl.png" />
+      </div>
+      <div class="menu-card">
+        <h1 class="menu-title">Snacks</h1>
+        <img class="menu-image" src="assets/menu/CAT-snacks.png" />
+      </div>
+      <div class="menu-card">
+        <h1 class="menu-title">Beverages</h1>
+        <img class="menu-image" src="assets/menu/CAT-BEVERAGES.png" />
+      </div>
+    </div>
+  </div>
+
+</div>
