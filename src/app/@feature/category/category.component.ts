@@ -49,27 +49,45 @@ export class CategoryComponent implements OnInit {
     this.items = [
       {
         label: 'Vegetarian',
-        routerLink: '/category?category=Vegetarian'
+        routerLink: '/category',
+        queryParams: {
+          'category': 'Vegetarian'
+        }
       },
       {
         label: 'Non-Vegetarian',
-        routerLink: '/category?category=Non-Vegetarian'
+        routerLink: '/category',
+        queryParams: {
+          'category': 'Non-Vegetarian'
+        }
       },
       {
         label: 'Ala-carte',
-        routerLink: '/category?category=Ala-Carte'
+        routerLink: '/category',
+        queryParams: {
+          'category': 'Ala-Carte'
+        }
       },
       {
         label: 'Chicken Wings',
-        routerLink: '/category?category=Chicken%20Wings'
+        routerLink: '/category',
+        queryParams: {
+          'category': 'Chicken Wings'
+        }
       },
       {
         label: 'Boneless Chicken Strips',
-        routerLink: '/category?category=Boneless%20Chicken%20Strips'
+        routerLink: '/category',
+        queryParams: {
+          'category': 'Boneless Chicken Strips'
+        }
       },
       {
         label: 'Bucket',
-        routerLink: '/category?category=Bucket'
+        routerLink: '/category',
+        queryParams: {
+          'category': 'Bucket'
+        }
       },
     ];
   }
