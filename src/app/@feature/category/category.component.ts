@@ -1,8 +1,10 @@
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { BreakPointRegistry } from '@angular/flex-layout';
 import { MatSelectionList, MatSelectionListChange } from '@angular/material/list';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SharedService } from '@app/@shared/shared.service';
-import { PrimeNGConfig } from 'primeng/api';
+import { MenuItem, PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-category',
@@ -11,7 +13,8 @@ import { PrimeNGConfig } from 'primeng/api';
 })
 export class CategoryComponent implements OnInit {
 
-  @ViewChild('menuListItems') public menuListItems: MatSelectionList
+  @ViewChild('menuListItems') public menuListItems: MatSelectionList;
+  items: MenuItem[];
 
   public categoryTitle: string = '';
   public categoryItems: any[] = [];
@@ -23,26 +26,56 @@ export class CategoryComponent implements OnInit {
     { item: 'product 5', image: 'assets/products/pd5.jpg', price: 799, category: 'nonveg' },
   ];
   public menuListOptions: string[] = ['Vegetarian', 'Non-Vegetarian', 'Ala-Carte', 'Chicken Wings', 'Boneless Chicken Strips', 'Bucket'];
+  public sideNav: boolean = true;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private sharedService: SharedService,
-    private primengConfig: PrimeNGConfig
+    private primengConfig: PrimeNGConfig,
+    private breakPointObserver: BreakpointObserver
   ) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(async params => {
       this.categoryTitle = await params.category;
-      // this.menuListItems.selectedOptions.selected[0]?.value
-      debugger
     });
     this.primengConfig.ripple = true;
     this.categoryItems = this.categoryItemsList;
+    this.breakPointObserver.observe([Breakpoints.Small, Breakpoints.XSmall]).subscribe((state: BreakpointState) => {
+      state.matches ? this.sideNav = false : this.sideNav = true;
+    });
+
+    this.items = [
+      {
+        label: 'Vegetarian',
+        routerLink: '/category?category=Vegetarian'
+      },
+      {
+        label: 'Non-Vegetarian',
+        routerLink: '/category?category=Non-Vegetarian'
+      },
+      {
+        label: 'Ala-carte',
+        routerLink: '/category?category=Ala-Carte'
+      },
+      {
+        label: 'Chicken Wings',
+        routerLink: '/category?category=Chicken%20Wings'
+      },
+      {
+        label: 'Boneless Chicken Strips',
+        routerLink: '/category?category=Boneless%20Chicken%20Strips'
+      },
+      {
+        label: 'Bucket',
+        routerLink: '/category?category=Bucket'
+      },
+    ];
   }
 
   public addToCart(item: any): void {
-    
+
   }
 
   public vegOnly(event: any): void {

@@ -1,13 +1,20 @@
 <mat-drawer-container class="example-container">
-    <mat-drawer mode="side" opened>
+    <mat-drawer mode="side" [opened]="sideNav">
         <br />
         <h1 class="mat-h1 p-pl-4">Menu List</h1>
         <p-divider></p-divider>
-        <mat-selection-list #menuListItems [multiple]="false" (selectionChange)="selectionChange($event)" color="accent">
-            <mat-list-option *ngFor="let menuItem of menuListOptions" [value]="menuItem" [selected]="menuItem === categoryTitle">{{menuItem}}</mat-list-option>
+        <mat-selection-list #menuListItems [multiple]="false" (selectionChange)="selectionChange($event)"
+            color="accent">
+            <mat-list-option *ngFor="let menuItem of menuListOptions" [value]="menuItem"
+                [selected]="menuItem === categoryTitle">{{menuItem}}</mat-list-option>
         </mat-selection-list>
     </mat-drawer>
     <mat-drawer-content>
+        <p-menubar [model]="items" fxHide.gt-sm>
+            <ng-template pTemplate="start">
+                <h2>Menu List</h2>
+            </ng-template>
+        </p-menubar>
         <section class="container">
             <div fxLayout="row" fxLayoutAlign="space-between center">
                 <h1 class="mat-h1">{{categoryTitle | titlecase}}</h1>

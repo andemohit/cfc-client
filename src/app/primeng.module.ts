@@ -7,6 +7,7 @@ import { BadgeModule } from 'primeng/badge';
 import { OrderListModule } from 'primeng/orderlist';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { DividerModule } from 'primeng/divider';
+import { MenubarModule } from 'primeng/menubar';
 
 @NgModule({
     exports: [
@@ -16,7 +17,8 @@ import { DividerModule } from 'primeng/divider';
         BadgeModule,
         OrderListModule,
         InputNumberModule,
-        DividerModule
+        DividerModule,
+        MenubarModule,
     ]
 })
 export class PrimeNGModule { }
